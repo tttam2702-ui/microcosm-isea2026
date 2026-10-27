@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: rgb(0, 0, 0);
+  font-family: 'Inter', sans-serif;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none; /* mouse clicks pass through */
+}
+
+#bg-video {
+  position: absolute;
+  top: 15%; /* <<< THIS REMOVES THE GAP */
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  width: 180%;
+  height: 180%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Title */
+#title {
+  font-family: "Michroma", sans-serif;
+  color: white;
+  font-size: clamp(28px, 4.445vw, 192px);
+  text-align: center;
+  margin-top: 12vh;
+  letter-spacing: clamp(2px, 0.417vw, 18px);
+  z-index: 1;
+}
+
+#start-btn {
+  --bg: #ffffff;
+  --glow-hue: 220deg;
+  --shadow-hue: 220deg;
+  --spring-duration: 0.3s;
+  --spring-easing: cubic-bezier(.15, .75, .5, 1.35);
+
+  color: var(--bg);
+  font-weight: 600;
+  background: rgba(255,255,255,0.05);
+  border: none;
+  padding: clamp(0.8rem, 0.89vw, 2.4rem) clamp(2rem, 2.22vw, 6rem);
+  border-radius: 999px;
+  position: absolute;
+  top: 40vh;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  font-family: "Michroma", sans-serif;
+  font-size: clamp(12px, 0.833vw, 36px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow:
+    0 0 0px rgba(255,255,255,0.2),
+    0 8px 20px rgba(0,0,0,0.4),
+    inset 0 0 20px rgba(255,255,255,0.15);
+  transition: transform var(--spring-duration) var(--spring-easing),
+              box-shadow var(--spring-duration) var(--spring-easing);
+  z-index: 3;
+}
+
+#start-btn:hover {
+  transform: translateX(-50%) scale(1.06);
+  background: rgb(255, 255, 255); /* stays transparent */
+  box-shadow:
+    0 0 12px hsla(var(--glow-hue),100%,70%,0.5), /* outer glow */
+    0 6px 15px rgba(0,0,0,0.4),                  /* soft shadow */
+    inset 0 0 12px rgba(255,255,255,0.15);      /* subtle inner light */
+  color: rgb(0, 0, 0); /* text stays readable */
+}
+
+#start-btn:active {
+  transform: translateX(-50%) scale(0.97);
+  background: rgba(255,255,255,0.06);
+  box-shadow:
+    0 0 8px hsla(var(--glow-hue),100%,70%,0.3),
+    0 4px 10px rgba(0,0,0,0.45),
+    inset 0 0 18px rgba(255,255,255,0.2);
+}
+
+/* Audio toggle */
+#audio-btn {
+
+  position: absolute;
+  top: clamp(24px, 1.667vw, 72px);
+  right: clamp(30px, 2.083vw, 90px);
+  padding: clamp(0.45rem, 0.5vw, 1.35rem) clamp(1.2rem, 1.333vw, 3.6rem);
+  font-family: "Michroma", sans-serif;
+  font-size: clamp(10px, 0.694vw, 30px);
+  font-weight: 400;
+  color: white;
+
+  background: rgba(255,255,255,0.05);
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  box-shadow:
+    0 0 0px rgba(255,255,255,0.2),
+    0 4px 10px rgba(0,0,0,0.4),
+    inset 0 0 12px rgba(255,255,255,0.15);
+
+  z-index: 50; /* <<< makes it stay on top */
+  transition: transform var(--spring-duration) var(--spring-easing),
+              box-shadow var(--spring-duration) var(--spring-easing);
+  z-index: 3;
+}
+
+#audio-btn:hover {
+  transform: scale(1.05);
+  background: rgb(255, 255, 255);
+  box-shadow:
+    0 0 10px hsla(var(--glow-hue),100%,70%,0.4),
+    0 6px 14px rgba(0,0,0,0.4),
+    inset 0 0 10px rgba(255,255,255,0.18);
+  color: rgb(0, 0, 0);
+}
+
+#audio-btn:active {
+  transform: scale(0.95);
+  background: rgba(255,255,255,0.05);
+  box-shadow:
+    0 0 8px hsla(var(--glow-hue),100%,70%,0.25),
+    0 4px 10px rgba(0,0,0,0.5),
+    inset 0 0 15px rgba(255,255,255,0.25);
+}
+
+
+.poetic-text {
+  position: absolute;
+  color: white;
+  font-size: clamp(12px, 0.972vw, 42px);
+  opacity: 0.8;
+  font-weight: 300;
+  pointer-events: none;
+}
+
+#intro-desc {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90vw, max(550px, 38.2vw));
+
+  text-align: center;
+  pointer-events: none;
+
+  font-family: 'Michroma', sans-serif;
+  font-size: clamp(11px, 0.903vw, 39px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+#intro-desc strong {
+  font-family: 'Michroma', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+#intro-desc::before {
+  content: "";
+  position: absolute;
+  inset: -80px -120px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.35) 40%,
+    rgba(0,0,0,0.15) 65%,
+    rgba(0,0,0,0.0) 80%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+/* Keep the floating lines at the same relative height on larger screens. */
+.t1 { top: 22.5vh; left: 10%; }   /* they are beautiful */
+.t2 { top: 12.5vh; left: 5%; }    /* not system */
+.t3 { top: 32.5vh; left: 6%; }    /* but lives you never notice */
+
+.t4 { top: 22.5vh; right: 1%; text-align: right; } /* every second something works for you */
+.t5 { top: 12.5vh; right: 5%; text-align: right; } /* not machine */
+.t6 { top: 32.5vh; right: 6%; text-align: right; } /* micro */

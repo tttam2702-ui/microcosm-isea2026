@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MICROCOSM</title>
+  <link rel="preload" href="fonts/michroma-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="sources/homepage.webm">
+  </video>
+
+  <!-- Poetic Static Text -->
+  <div class="poetic-text t1">they are beautiful</div>
+  <div class="poetic-text t2">not system</div>
+  <div class="poetic-text t3">but lives you never notice</div>
+  <div class="poetic-text t4">every second something works for you</div>
+  <div class="poetic-text t5">not machine</div>
+  <div class="poetic-text t6">micro</div>
+
+  <!-- Title -->
+  <h1 id="title">MICROCOSM</h1>
+
+  <!-- Start Button -->
+  <button id="start-btn">START</button>
+
+  <!-- Audio button -->
+  <button id="audio-btn">AUDIO</button>
+
+  <div id="intro-desc">
+  <p>
+    <strong>Microcosm</strong> is an interactive experience that reveals the
+    invisible cellular labour constantly sustaining human life.
+    Through motion, sound, and observation, you are invited to explore
+    microscopic systems that quietly maintain structure, movement,
+    and balance—working continuously, without recognition.
+  </p>
+</div>
+
+  <!-- p5 Canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+  <script src="sketch.js"></script>
+
+</body>
+</html>

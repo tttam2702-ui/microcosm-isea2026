@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MICROCOSM: Experience</title>
+<link rel="preload" href="fonts/michroma-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css" />
+<link rel="stylesheet" href="experience.css" />
+</head>
+
+<body>
+
+<button id="audio-btn">AUDIO</button>
+
+<!-- UI PANELS -->
+<div id="cam-panel"><video id="cam-feed"></video><div id="hand-status" role="status" aria-live="polite">Loading hand tracking…</div></div>
+<div id="select-panel">
+  <div id="cell-list"></div>
+</div>
+<div id="observe-panel">
+  <h3>OBSERVATION</h3>
+  <label>speed<input type="range" id="speed" min="0.3" max="2.5" step="0.01" value="1.0"></label>
+  <label>zoom <input type="range" id="zoom" min="0.5" max="2.0" step="0.01" value="1"></label>
+  <label>pixel<input type="range" id="pixel" min="0" max="1" step="0.01" value="0.5"></label>
+</div>
+
+<div id="micro-note">
+  <div class="note-title">MICROCOSM</div>
+  <div class="note-sub">Please read and follow the instructions for the better experience</div>
+</div>
+
+<div id="cell-info"></div>
+
+<!-- MESSAGE STACK -->
+<div id="msg-box"></div>
+
+<!-- canvas is behind everything -->
+<div id="p5-container"></div>
+
+
+<!-- p5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+
+<script src="experience.js"></script>
+
+</body>
+</html>

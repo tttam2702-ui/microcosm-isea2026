@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Transition</title>
+<link rel="preload" href="fonts/michroma-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css" />
+<link rel="stylesheet" href="transition.css" />
+</head>
+<body>
+
+<!-- Background video -->
+<video id="bg-video" autoplay muted loop playsinline>
+  <source src="sources/lab.webm">
+</video>
+
+<div id="textPanel">
+  <div id="panelFrame"></div>   <!-- static shape -->
+  <div id="textHolder">
+    <div id="textBox"></div>    <!-- only text updates -->
+  </div>
+  <div class="hud-node n1"></div>
+  <div class="hud-node n2"></div>
+</div>
+
+<div id="clickHint">click to continue</div>
+
+<!-- Audio toggle -->
+<button id="audio-btn">AUDIO</button>
+
+<!-- p5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+<script src="transition.js"></script>
+</body>
+</html>
